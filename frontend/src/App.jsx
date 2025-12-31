@@ -33,6 +33,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useColorMode, useColorModeValue } from '@chakra-ui/react';
 import Swal from 'sweetalert2';
 import { FormErrorMessage } from '@chakra-ui/react';
+import Confetti from 'react-confetti';
+import { useWindowSize } from 'react-use';
 
 
 const MotionBox = motion(Box);
@@ -46,6 +48,8 @@ const App = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [newUser, setNewUser] = useState({ name: '', company_name: '', role: '', country: '' });
   const [errors, setErrors] = useState({});
+  const [showConfetti, setShowConfetti] = useState(true);
+  const { width, height } = useWindowSize();
   const toast = useToast();
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -93,6 +97,9 @@ const App = () => {
 
   useEffect(() => {
     fetchUsers();
+    // Stop confetti after 5 seconds for a clean "paper cut" effect
+    const timer = setTimeout(() => setShowConfetti(false), 5000);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -164,6 +171,15 @@ const App = () => {
 
   return (
     <Box minH="100vh" bg={bgColor} py={10} px={4}>
+      {showConfetti && (
+        <Confetti
+          width={width}
+          height={height}
+          numberOfPieces={200}
+          recycle={true}
+          colors={['#3182ce', '#805ad5', '#ffffff', '#63b3ed']}
+        />
+      )}
       <Container maxW="container.xl">
         <VStack spacing={8} align="stretch">
           <MotionBox
