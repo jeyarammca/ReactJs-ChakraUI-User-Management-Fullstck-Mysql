@@ -97,8 +97,8 @@ const App = () => {
 
   useEffect(() => {
     fetchUsers();
-    // Stop confetti after 5 seconds for a clean "paper cut" effect
-    const timer = setTimeout(() => setShowConfetti(false), 5000);
+    // Stop confetti after 15 seconds for an extended "wow" effect
+    const timer = setTimeout(() => setShowConfetti(false), 15000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -175,9 +175,17 @@ const App = () => {
         <Confetti
           width={width}
           height={height}
-          numberOfPieces={200}
+          numberOfPieces={300}
           recycle={true}
-          colors={['#3182ce', '#805ad5', '#ffffff', '#63b3ed']}
+          colors={[
+            '#4285F4', // Google Blue
+            '#EA4335', // Google Red
+            '#FBBC05', // Google Yellow
+            '#34A853', // Google Green
+            '#805ad5', // Purple
+            '#ffffff', // White
+            '#63b3ed'  // Light Blue
+          ]}
         />
       )}
       <Container maxW="container.xl">
