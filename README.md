@@ -2,7 +2,7 @@
 
 A full-stack user management application built with React (Vite + Chakra UI) and Node.js (Express + MySQL).
 
-## 🚀 Features
+##  Features
 
 - **User Listing**: Fetch and display users from a MySQL database.
 - **Add User**: Add new users with real-time local state updates.
