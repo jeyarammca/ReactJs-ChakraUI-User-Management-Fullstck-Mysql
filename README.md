@@ -14,6 +14,10 @@ A full-stack user management application built with React (Vite + Chakra UI) and
 ## 📸 Screenshots
 
 <div align="center">
+  <h3>🎉 Landing Celebration</h3>
+  <img src="screenshots/popout.png" width="800px" alt="Confetti Animation" />
+  <br/><br/>
+
   <h3>User List Page</h3>
   <img src="screenshots/User_List_Page.png" width="800px" alt="User List Page" />
   <br/><br/>
